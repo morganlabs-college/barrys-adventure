@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7qnu5d6ca3rh"]
+[gd_scene load_steps=8 format=3 uid="uid://b7qnu5d6ca3rh"]
 
 [ext_resource type="Texture2D" uid="uid://ilue013b5gmj" path="res://assets/player.png" id="1_jwvrk"]
 
@@ -35,16 +35,23 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ve4l3"]
+size = Vector2(24, 46)
+
+[node name="Player" type="CharacterBody2D"]
 z_index = 5
+position = Vector2(0, -24)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_vnylc")
 autoplay = "default"
-frame = 1
-frame_progress = 0.971238
+frame = 2
+frame_progress = 0.359016
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_ve4l3")
