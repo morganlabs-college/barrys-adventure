@@ -17,12 +17,12 @@ scenes/1/scene = ExtResource("4_ksgt5")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tb63"]
 texture = ExtResource("2_rhx5p")
 texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -3.71231, 12.4628, -12.1976, 3.27037, -16)
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -3.71231, -12.4628, -12.1976, -3.27037, -16)
 
 [sub_resource type="TileSet" id="TileSet_u5ga4"]
 tile_size = Vector2i(32, 32)
