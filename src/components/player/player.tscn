@@ -40,20 +40,22 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ve4l3"]
-size = Vector2(24, 46)
+size = Vector2(17, 31)
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
-position = Vector2(0, -24)
+position = Vector2(-6, -24)
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_l2xk2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(1.5, 1.5)
+position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_vnylc")
 autoplay = "default"
 frame = 2
 frame_progress = 0.359016
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0.5, 8.5)
 shape = SubResource("RectangleShape2D_ve4l3")
