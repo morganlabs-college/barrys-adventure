@@ -69,5 +69,3 @@ position = Vector2(0, 137)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Killzone"]
 shape = SubResource("WorldBoundaryShape2D_dpo37")
-
-[connection signal="body_entered" from="Environment/Items/@Area2D@56943" to="Environment/Items/@Area2D@56943" method="_on_body_entered"]
