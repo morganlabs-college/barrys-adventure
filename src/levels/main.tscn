@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cq8rdtnkftcof"]
+[gd_scene load_steps=11 format=4 uid="uid://cq8rdtnkftcof"]
 
 [ext_resource type="PackedScene" uid="uid://b7qnu5d6ca3rh" path="res://components/player/player.tscn" id="1_jf0et"]
 [ext_resource type="Texture2D" uid="uid://bmtev2k1iday6" path="res://assets/test.png" id="2_rhx5p"]
@@ -48,17 +48,17 @@ position_smoothing_enabled = true
 [node name="Ground" type="TileMapLayer" parent="Environment"]
 z_index = 1
 use_parent_material = true
-tile_map_data = PackedByteArray(0, 0, 254, 255, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 255, 1, 0, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 2, 0, 0, 0, 0, 0, 2, 0, 1, 0, 3, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAD+/wEAAwAAAAAAAAD//wEAAwACAAAAAAAAAAEAAwACAAAAAAACAAEAAwACAAAAAAABAAEAAwACAAAAAAADAAEAAwABAAAAAAA=")
 tile_set = SubResource("TileSet_u5ga4")
 
 [node name="Killzones" type="TileMapLayer" parent="Environment"]
 use_parent_material = true
-tile_map_data = PackedByteArray(0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0)
+tile_map_data = PackedByteArray("AAABAAAAAQAAAAAAAQACAAAAAQAAAAAAAQA=")
 tile_set = SubResource("TileSet_u5ga4")
 
 [node name="Items" type="TileMapLayer" parent="Environment"]
 use_parent_material = true
-tile_map_data = PackedByteArray(0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0)
+tile_map_data = PackedByteArray("AAD+/wAAAAAAAAAAAQA=")
 tile_set = SubResource("TileSet_u5ga4")
 
 [node name="Killzone" parent="Environment" instance=ExtResource("3_geksk")]
