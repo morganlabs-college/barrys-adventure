@@ -1,10 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://cq8rdtnkftcof"]
+[gd_scene load_steps=11 format=3 uid="uid://cq8rdtnkftcof"]
 
 [ext_resource type="PackedScene" uid="uid://b7qnu5d6ca3rh" path="res://components/player/player.tscn" id="1_jf0et"]
 [ext_resource type="Texture2D" uid="uid://bmtev2k1iday6" path="res://assets/test.png" id="2_rhx5p"]
 [ext_resource type="PackedScene" uid="uid://7xa41tvutwyc" path="res://components/killzone/killzone.tscn" id="3_geksk"]
 [ext_resource type="PackedScene" uid="uid://iwxcjne1wtr3" path="res://components/spike/spike.tscn" id="4_ksgt5"]
 [ext_resource type="PackedScene" uid="uid://bbecv4dgb47g1" path="res://components/mana/mana.tscn" id="5_nsl1p"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mkwwv"]
+resource_name = "Items"
+scenes/1/scene = ExtResource("5_nsl1p")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5hkd0"]
+resource_name = "Killzones"
+scenes/1/scene = ExtResource("4_ksgt5")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2tb63"]
 texture = ExtResource("2_rhx5p")
@@ -20,14 +28,13 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/3 = SubResource("TileSetAtlasSource_2tb63")
+sources/0 = SubResource("TileSetScenesCollectionSource_mkwwv")
+sources/1 = SubResource("TileSetScenesCollectionSource_5hkd0")
 tile_proxies/coords_level = [[0, Vector2i(0, 0)], [3, Vector2i(0, 0)], [1, Vector2i(0, 0)], [3, Vector2i(1, 0)], [2, Vector2i(0, 0)], [3, Vector2i(2, 0)]]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dpo37"]
 
 [node name="Node2D" type="Node2D"]
-
-[node name="Spike" parent="." instance=ExtResource("4_ksgt5")]
-position = Vector2(38, 33)
 
 [node name="Player" parent="." instance=ExtResource("1_jf0et")]
 position = Vector2(0, 8)
@@ -39,8 +46,19 @@ position_smoothing_enabled = true
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Ground" type="TileMapLayer" parent="Environment"]
+z_index = 1
 use_parent_material = true
-tile_map_data = PackedByteArray(0, 0, 254, 255, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 255, 1, 0, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 2, 0, 0, 0, 0, 0, 1, 0, 1, 0, 3, 0, 1, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray(0, 0, 254, 255, 1, 0, 3, 0, 0, 0, 0, 0, 0, 0, 255, 255, 1, 0, 3, 0, 2, 0, 0, 0, 0, 0, 0, 0, 1, 0, 3, 0, 2, 0, 0, 0, 0, 0, 2, 0, 1, 0, 3, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 3, 0, 2, 0, 0, 0, 0, 0)
+tile_set = SubResource("TileSet_u5ga4")
+
+[node name="Killzones" type="TileMapLayer" parent="Environment"]
+use_parent_material = true
+tile_map_data = PackedByteArray(0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0)
+tile_set = SubResource("TileSet_u5ga4")
+
+[node name="Items" type="TileMapLayer" parent="Environment"]
+use_parent_material = true
+tile_map_data = PackedByteArray(0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0)
 tile_set = SubResource("TileSet_u5ga4")
 
 [node name="Killzone" parent="Environment" instance=ExtResource("3_geksk")]
@@ -48,6 +66,3 @@ position = Vector2(0, 137)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Killzone"]
 shape = SubResource("WorldBoundaryShape2D_dpo37")
-
-[node name="Mana" parent="." instance=ExtResource("5_nsl1p")]
-position = Vector2(-39, 17)
