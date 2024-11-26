@@ -41,6 +41,9 @@ position = Vector2(0, 8)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2, 2)
+limit_top = -96
+limit_bottom = 128
+limit_smoothed = true
 position_smoothing_enabled = true
 
 [node name="Environment" type="Node2D" parent="."]
@@ -66,3 +69,5 @@ position = Vector2(0, 137)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Killzone"]
 shape = SubResource("WorldBoundaryShape2D_dpo37")
+
+[connection signal="body_entered" from="Environment/Items/Mana" to="Environment/Items/Mana" method="_on_body_entered"]
