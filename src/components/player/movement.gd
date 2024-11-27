@@ -9,6 +9,9 @@ const JUMP_TIME_DESCENT := 0.3
 
 var has_double_jumped := false
 
+var is_already_rising := false
+var is_already_falling := false
+
 @onready var sprite = $AnimatedSprite2D
 
 @onready var jump_velocity = ((2.0 * JUMP_HEIGHT) / JUMP_TIME_PEAK) * -1.0
@@ -56,10 +59,16 @@ func handle_movement():
 
 func handle_animation():
 	if !is_on_floor() && velocity.y < 0:
-		sprite.play("rising")
+		if is_already_rising:
+			sprite.play("rising")
+		is_already_rising = true
 		return
 	if !is_on_floor() && velocity.y > 0:
-		sprite.play("falling")
+		if !is_already_falling:
+			sprite.play("falling")
+		is_already_falling = true
 		return
 
 	sprite.play("running")
+	is_already_falling = false
+	is_already_rising = false
