@@ -1,16 +1,15 @@
 extends CharacterBody2D
 
-const SPEED := 125.0
-const SPRINT_MULTIPLIER := 2.0
+enum DIRECTIONS { RISING, FALLING, FORWARD }
 
-const JUMP_HEIGHT := 35.0
-const JUMP_TIME_PEAK := 0.3
-const JUMP_TIME_DESCENT := 0.3
+const SPEED := 200.0
+const JUMP_HEIGHT := 70.0
+const JUMP_TIME_PEAK := 0.5
+const JUMP_TIME_DESCENT := 0.5
 
 var has_double_jumped := false
 
-var is_already_rising := false
-var is_already_falling := false
+var direction := DIRECTIONS.FORWARD
 
 @onready var sprite = $AnimatedSprite2D
 
@@ -25,9 +24,10 @@ func _get_gravity() -> float:
 
 func _physics_process(delta: float) -> void:
 	velocity.y += _get_gravity() * delta
+	velocity.x = SPEED
 
+	get_direction(delta)
 	handle_jump()
-	handle_movement()
 	handle_animation()
 
 	move_and_slide()
@@ -37,38 +37,30 @@ func handle_jump():
 	if Input.is_action_pressed("Jump"):
 		if is_on_floor():
 			velocity.y = jump_velocity
+			return
 
 	if Input.is_action_just_pressed("Jump") and !is_on_floor() and !has_double_jumped:
 		velocity.y = jump_velocity / 1.25
+		direction = DIRECTIONS.RISING
 		has_double_jumped = true
 
 	if is_on_floor():
 		has_double_jumped = false
 
 
-func handle_movement():
-	var direction := Input.get_axis("Left", "Right")
-	var sprint_multiplier := SPRINT_MULTIPLIER if Input.is_action_pressed("Sprint") else 1.0
-
-	if direction:
-		velocity.x = direction * SPEED * sprint_multiplier
-
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-
 func handle_animation():
-	if !is_on_floor() && velocity.y < 0:
-		if is_already_rising:
-			sprite.play("rising")
-		is_already_rising = true
-		return
-	if !is_on_floor() && velocity.y > 0:
-		if !is_already_falling:
-			sprite.play("falling")
-		is_already_falling = true
-		return
+	if (direction == DIRECTIONS.RISING) && (sprite.animation != "rising"):
+		sprite.play("rising")
+	elif (direction == DIRECTIONS.FALLING) && (sprite.animation != "falling"):
+		sprite.play("falling")
+	elif (is_on_floor()) && (direction == DIRECTIONS.FORWARD) && (sprite.animation != "running"):
+		sprite.play("running")
 
-	sprite.play("running")
-	is_already_falling = false
-	is_already_rising = false
+
+func get_direction(delta: float):
+	if velocity.y < 0:
+		direction = DIRECTIONS.RISING
+	elif velocity.y > (fall_gravity * delta):
+		direction = DIRECTIONS.FALLING
+	else:
+		direction = DIRECTIONS.FORWARD
