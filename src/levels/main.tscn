@@ -56,6 +56,7 @@ tile_set = SubResource("TileSet_u5ga4")
 
 [node name="Killzones" type="TileMapLayer" parent="Environment"]
 use_parent_material = true
+tile_map_data = PackedByteArray("AAACAAAAAQAAAAAAAQAVAP7/AQAAAAAAAQAPAP7/AQAAAAAAAQAQAP7/AQAAAAAAAQARAP7/AQAAAAAAAQASAP7/AQAAAAAAAQATAP7/AQAAAAAAAQAUAP7/AQAAAAAAAQAWAP7/AQAAAAAAAQAXAP7/AQAAAAAAAQAYAP7/AQAAAAAAAQAZAP7/AQAAAAAAAQA=")
 tile_set = SubResource("TileSet_u5ga4")
 
 [node name="Items" type="TileMapLayer" parent="Environment"]
