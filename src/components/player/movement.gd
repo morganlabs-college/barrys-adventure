@@ -2,20 +2,20 @@ extends CharacterBody2D
 
 enum DIRECTIONS { RISING, FALLING, FORWARD }
 
-const SPEED := 200.0
 const JUMP_HEIGHT := 70.0
 const JUMP_TIME_PEAK := 0.5
 const JUMP_TIME_DESCENT := 0.5
 
-var has_double_jumped := false
+@export var speed := 200.0
 
+var has_double_jumped := false
 var direction := DIRECTIONS.FORWARD
 
-@onready var sprite = $AnimatedSprite2D
+@onready var sprite := $AnimatedSprite2D
 
-@onready var jump_velocity = ((2.0 * JUMP_HEIGHT) / JUMP_TIME_PEAK) * -1.0
-@onready var jump_gravity = ((-2.0 * JUMP_HEIGHT) / (JUMP_TIME_PEAK * JUMP_TIME_PEAK)) * -1.0
-@onready var fall_gravity = ((-2.0 * JUMP_HEIGHT) / (JUMP_TIME_DESCENT * JUMP_TIME_DESCENT)) * -1.0
+@onready var jump_velocity := ((2.0 * JUMP_HEIGHT) / JUMP_TIME_PEAK) * -1.0
+@onready var jump_gravity := ((-2.0 * JUMP_HEIGHT) / (JUMP_TIME_PEAK * JUMP_TIME_PEAK)) * -1.0
+@onready var fall_gravity := ((-2.0 * JUMP_HEIGHT) / (JUMP_TIME_DESCENT * JUMP_TIME_DESCENT)) * -1.0
 
 
 func _get_gravity() -> float:
@@ -24,7 +24,7 @@ func _get_gravity() -> float:
 
 func _physics_process(delta: float) -> void:
 	velocity.y += _get_gravity() * delta
-	velocity.x = SPEED
+	velocity.x = speed
 
 	get_direction(delta)
 	handle_jump()

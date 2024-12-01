@@ -1,0 +1,139 @@
+[gd_scene load_steps=13 format=4 uid="uid://cq8rdtnkftcof"]
+
+[ext_resource type="PackedScene" uid="uid://b7qnu5d6ca3rh" path="res://components/player/player.tscn" id="1_d4hpr"]
+[ext_resource type="PackedScene" uid="uid://bbecv4dgb47g1" path="res://components/items/mana.tscn" id="2_517ep"]
+[ext_resource type="PackedScene" uid="uid://iwxcjne1wtr3" path="res://components/spike/spike.tscn" id="3_bvjm4"]
+[ext_resource type="Texture2D" uid="uid://cg0kg448rrjvl" path="res://assets/spritesheet.png" id="4_x7uvr"]
+[ext_resource type="PackedScene" uid="uid://dadxcc0gi61xp" path="res://components/freeze_time/freeze_time.tscn" id="5_apw8s"]
+[ext_resource type="PackedScene" uid="uid://7xa41tvutwyc" path="res://components/killzone/killzone.tscn" id="5_jaykn"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mkwwv"]
+resource_name = "Items"
+scenes/2/scene = ExtResource("2_517ep")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5hkd0"]
+resource_name = "Killzones"
+scenes/1/scene = ExtResource("3_bvjm4")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h56s0"]
+texture = ExtResource("4_x7uvr")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -3.71231, -12.4628, -12.1976, -3.27037, -16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -3.71231, 12.4628, -12.1976, 3.27037, -16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_u5ga4"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetScenesCollectionSource_mkwwv")
+sources/1 = SubResource("TileSetScenesCollectionSource_5hkd0")
+sources/4 = SubResource("TileSetAtlasSource_h56s0")
+tile_proxies/coords_level = [[0, Vector2i(0, 0)], [3, Vector2i(0, 0)], [1, Vector2i(0, 0)], [3, Vector2i(1, 0)], [2, Vector2i(0, 0)], [3, Vector2i(2, 0)]]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0fxqg"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dpo37"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Text" type="Node2D" parent="."]
+position = Vector2(120, -64)
+
+[node name="Label" type="Label" parent="Text"]
+offset_right = 278.0
+offset_bottom = 84.0
+theme_override_constants/line_spacing = -20
+theme_override_font_sizes/font_size = 64
+text = "Hello there :)
+Welcome to <Game Name>!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Text"]
+offset_left = 333.0
+offset_right = 611.0
+offset_bottom = 116.0
+theme_override_constants/line_spacing = -20
+theme_override_font_sizes/font_size = 64
+text = "Here's a little walkthrough so you know what to do..."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label3" type="Label" parent="Text"]
+offset_left = 884.0
+offset_right = 1162.0
+offset_bottom = 116.0
+theme_override_constants/line_spacing = -20
+theme_override_font_sizes/font_size = 64
+text = "Press <Space> or <Up> here!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label4" type="Label" parent="Text"]
+offset_left = 1326.0
+offset_right = 1604.0
+offset_bottom = 116.0
+theme_override_constants/line_spacing = -20
+theme_override_font_sizes/font_size = 64
+text = "And again here for a double-jump!"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Player" parent="." instance=ExtResource("1_d4hpr")]
+position = Vector2(0, 8)
+speed = 100.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(93, 0)
+zoom = Vector2(2, 2)
+limit_top = -128
+limit_bottom = 128
+position_smoothing_enabled = true
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMapLayer" parent="Environment"]
+z_index = 1
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD+/wEABAACAAAAAAD//wEABAACAAAAAAAAAAEABAACAAAAAAACAAEABAACAAAAAAABAAEABAACAAAAAAADAAEABAACAAAAAAD7/wEABAACAAAAAAD8/wEABAACAAAAAAD9/wEABAACAAAAAAAEAAEABAACAAAAAAAFAAEABAACAAAAAAAGAAEABAACAAAAAAAHAAEABAACAAAAAAAIAAEABAACAAAAAAAJAAEABAACAAAAAAAKAAEABAACAAAAAAALAAEABAACAAAAAAAMAAEABAACAAAAAAANAAEABAACAAAAAAAOAAEABAACAAAAAAAPAAEABAACAAAAAAAQAAEABAACAAAAAAARAAEABAACAAAAAAASAAEABAACAAAAAAATAAEABAACAAAAAAAUAAEABAACAAAAAAAVAAEABAACAAAAAAAWAAEABAACAAAAAAAXAAEABAACAAAAAAAYAAEABAACAAAAAAAZAAEABAACAAAAAAAaAAEABAACAAAAAAAbAAEABAACAAAAAAAcAAEABAACAAAAAAAdAAEABAACAAAAAAAeAAEABAACAAAAAAAfAAEABAACAAAAAAAgAAEABAACAAAAAAAhAAEABAACAAAAAAAiAAEABAACAAAAAAAjAAEABAACAAAAAAAkAAEABAACAAAAAAAlAAEABAACAAAAAAAmAAEABAACAAAAAAAnAAEABAACAAAAAAAoAAEABAACAAAAAAApAAEABAACAAAAAAAqAAEABAACAAAAAAArAAEABAACAAAAAAAsAAEABAACAAAAAAAtAAEABAACAAAAAAAuAAEABAACAAAAAAAvAAEABAACAAAAAAAwAAEABAACAAAAAAAxAAEABAACAAAAAAAyAAEABAACAAAAAAAzAAEABAACAAAAAAA0AAEABAACAAAAAAA1AAEABAACAAAAAAA2AAEABAACAAAAAAA3AAEABAACAAAAAAA4AAEABAACAAAAAAA5AAEABAACAAAAAAA6AAEABAACAAAAAAA7AAEABAACAAAAAAA8AAEABAACAAAAAAA9AAEABAACAAAAAAA+AAEABAACAAAAAAA/AAEABAACAAAAAABAAAEABAACAAAAAABBAAEABAACAAAAAABCAAEABAACAAAAAABDAAEABAACAAAAAABEAAEABAACAAAAAABFAAEABAACAAAAAABGAAEABAACAAAAAABHAAEABAACAAAAAABIAAEABAACAAAAAABJAAEABAACAAAAAABKAAEABAACAAAAAABLAAEABAACAAAAAABMAAEABAACAAAAAABNAAEABAACAAAAAABOAAEABAACAAAAAABPAAEABAACAAAAAABQAAEABAACAAAAAABRAAEABAACAAAAAABSAAEABAACAAAAAABTAAEABAACAAAAAABUAAEABAACAAAAAABVAAEABAACAAAAAABWAAEABAACAAAAAABXAAEABAACAAAAAABYAAEABAACAAAAAABZAAEABAACAAAAAABaAAEABAACAAAAAABbAAEABAACAAAAAABcAAEABAACAAAAAABdAAEABAACAAAAAABeAAEABAACAAAAAABfAAEABAACAAAAAABgAAEABAACAAAAAABhAAEABAACAAAAAABiAAEABAACAAAAAABjAAEABAACAAAAAABkAAEABAACAAAAAABlAAEABAACAAAAAABmAAEABAACAAAAAABnAAEABAACAAAAAABoAAEABAACAAAAAABpAAEABAACAAAAAABqAAEABAACAAAAAABrAAEABAACAAAAAABsAAEABAACAAAAAABtAAEABAACAAAAAABuAAEABAACAAAAAABvAAEABAACAAAAAAA=")
+tile_set = SubResource("TileSet_u5ga4")
+
+[node name="Killzones" type="TileMapLayer" parent="Environment"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAhAAAAAQAAAAAAAQAuAAAAAQAAAAAAAQAvAAAAAQAAAAAAAQAwAAAAAQAAAAAAAQAxAAAAAQAAAAAAAQA=")
+tile_set = SubResource("TileSet_u5ga4")
+
+[node name="Items" type="TileMapLayer" parent="Environment"]
+use_parent_material = true
+tile_set = SubResource("TileSet_u5ga4")
+
+[node name="FreezeTime" parent="Environment" instance=ExtResource("5_apw8s")]
+process_mode = 3
+position = Vector2(1017, 1)
+collision_layer = 2
+collision_mask = 2
+input_to_unfreeze = "Jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/FreezeTime"]
+shape = SubResource("WorldBoundaryShape2D_0fxqg")
+
+[node name="FreezeTime2" parent="Environment" instance=ExtResource("5_apw8s")]
+process_mode = 3
+position = Vector2(1550, 1)
+collision_layer = 2
+collision_mask = 2
+input_to_unfreeze = "Jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/FreezeTime2"]
+position = Vector2(-14, 0)
+shape = SubResource("WorldBoundaryShape2D_0fxqg")
+
+[node name="Killzone" parent="Environment" instance=ExtResource("5_jaykn")]
+position = Vector2(0, 137)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Killzone"]
+shape = SubResource("WorldBoundaryShape2D_dpo37")

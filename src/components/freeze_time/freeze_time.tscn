@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dadxcc0gi61xp"]
+
+[ext_resource type="Script" path="res://components/freeze_time/freeze_time.gd" id="1_bp3ce"]
+
+[node name="FreezeTime" type="Area2D"]
+script = ExtResource("1_bp3ce")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]
