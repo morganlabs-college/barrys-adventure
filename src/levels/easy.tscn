@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=4 uid="uid://bq4wkt2pq0isl"]
+
+[ext_resource type="PackedScene" uid="uid://b7qnu5d6ca3rh" path="res://components/player/player.tscn" id="2_3hgb1"]
+[ext_resource type="PackedScene" uid="uid://bbecv4dgb47g1" path="res://components/items/mana.tscn" id="3_kwpsu"]
+[ext_resource type="PackedScene" uid="uid://iwxcjne1wtr3" path="res://components/spike/spike.tscn" id="4_f4c4l"]
+[ext_resource type="Texture2D" uid="uid://cg0kg448rrjvl" path="res://assets/spritesheet.png" id="5_7jjhu"]
+[ext_resource type="PackedScene" uid="uid://7xa41tvutwyc" path="res://components/killzone/killzone.tscn" id="7_sd2vu"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mkwwv"]
+resource_name = "Items"
+scenes/2/scene = ExtResource("3_kwpsu")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_5hkd0"]
+resource_name = "Killzones"
+scenes/1/scene = ExtResource("4_f4c4l")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h56s0"]
+texture = ExtResource("5_7jjhu")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -3.71231, -12.4628, -12.1976, -3.27037, -16)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -3.71231, 12.4628, -12.1976, 3.27037, -16)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+28:1/size_in_atlas = Vector2i(2, 2)
+28:1/0 = 0
+28:3/size_in_atlas = Vector2i(2, 2)
+28:3/0 = 0
+28:0/size_in_atlas = Vector2i(2, 1)
+28:0/0 = 0
+30:0/size_in_atlas = Vector2i(1, 2)
+30:0/0 = 0
+31:0/size_in_atlas = Vector2i(1, 2)
+31:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_u5ga4"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetScenesCollectionSource_mkwwv")
+sources/1 = SubResource("TileSetScenesCollectionSource_5hkd0")
+sources/4 = SubResource("TileSetAtlasSource_h56s0")
+tile_proxies/coords_level = [[0, Vector2i(0, 0)], [3, Vector2i(0, 0)], [1, Vector2i(0, 0)], [3, Vector2i(1, 0)], [2, Vector2i(0, 0)], [3, Vector2i(2, 0)]]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dpo37"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_3hgb1")]
+position = Vector2(0, 8)
+collision_layer = 7
+collision_mask = 1
+speed = 125.0
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(93, 0)
+zoom = Vector2(2, 2)
+limit_top = -256
+limit_bottom = 256
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="Environment" type="Node2D" parent="."]
+
+[node name="Ground" type="TileMapLayer" parent="Environment"]
+z_index = 1
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD+/wEABAACAAAAAAD//wEABAACAAAAAAAAAAEABAACAAAAAAACAAEABAACAAAAAAABAAEABAACAAAAAAADAAEABAACAAAAAAD7/wEABAACAAAAAAD8/wEABAACAAAAAAD9/wEABAACAAAAAAAEAAEABAACAAAAAAALAAEABAABAAAAAAAFAAEABAACAAAAAAAGAAEABAACAAAAAAAHAAEABAACAAAAAAAIAAEABAACAAAAAAAJAAEABAACAAAAAAAKAAEABAACAAAAAAAQAAAABAACAAAAAAARAAAABAACAAAAAAASAAAABAACAAAAAAATAAAABAACAAAAAAAUAAAABAACAAAAAAAVAAAABAACAAAAAAAWAAAABAACAAAAAAAXAAAABAACAAAAAAAYAAAABAACAAAAAAAZAAAABAACAAAAAAAaAAAABAABAAAAAAAOAAAABAAAAAAAAAAPAAAABAACAAAAAAAbAAMABAAAAAAAAAAcAAMABAACAAAAAAAdAAMABAACAAAAAAAeAAMABAACAAAAAAAfAAMABAACAAAAAAAgAAMABAACAAAAAAAhAAMABAACAAAAAAAiAAMABAACAAAAAAAjAAMABAACAAAAAAAkAAMABAACAAAAAAAlAAMABAACAAAAAAAmAAMABAACAAAAAAAnAAMABAACAAAAAAAoAAMABAACAAAAAAApAAMABAACAAAAAAAqAAMABAABAAAAAAAyAAIABAACAAAAAAAzAAIABAACAAAAAAA0AAIABAACAAAAAAA1AAIABAACAAAAAAA2AAIABAACAAAAAAA3AAIABAACAAAAAAA4AAIABAACAAAAAAA5AAIABAACAAAAAAA6AAIABAACAAAAAAA7AAIABAABAAAAAAAuAAIABAAAAAAAAAAvAAIABAACAAAAAAAwAAIABAACAAAAAAAxAAIABAACAAAAAABJAAAABAACAAAAAABKAAAABAABAAAAAAA+AAAABAAAAAAAAAA/AAAABAACAAAAAABAAAAABAACAAAAAABBAAAABAACAAAAAABCAAAABAACAAAAAABDAAAABAACAAAAAABEAAAABAACAAAAAABFAAAABAACAAAAAABGAAAABAACAAAAAABHAAAABAACAAAAAABIAAAABAACAAAAAABMAAUABAAAAAAAAABNAAUABAACAAAAAABOAAUABAACAAAAAABPAAUABAACAAAAAABQAAUABAACAAAAAABRAAUABAACAAAAAABSAAUABAACAAAAAABTAAUABAACAAAAAABUAAUABAABAAAAAABXAAIABAAAAAAAAABYAAIABAACAAAAAABZAAIABAACAAAAAABaAAIABAACAAAAAABbAAIABAACAAAAAABcAAIABAACAAAAAABdAAIABAACAAAAAABeAAIABAACAAAAAABfAAIABAACAAAAAABgAAIABAACAAAAAABhAAIABAACAAAAAABiAAIABAACAAAAAABjAAIABAACAAAAAABkAAIABAABAAAAAABpAAEABAAAAAAAAABqAAEABAACAAAAAABrAAEABAACAAAAAABsAAEABAACAAAAAABtAAEABAACAAAAAABuAAEABAACAAAAAABvAAEABAACAAAAAABwAAEABAACAAAAAABxAAEABAACAAAAAAByAAEABAACAAAAAABzAAEABAABAAAAAAB2AAMABAAAAAAAAAB3AAMABAACAAAAAAB4AAMABAACAAAAAAB5AAMABAACAAAAAAB6AAMABAACAAAAAAB7AAMABAACAAAAAAB8AAMABAACAAAAAAB9AAMABAACAAAAAAB+AAMABAACAAAAAAB/AAMABAACAAAAAACAAAMABAACAAAAAACBAAMABAACAAAAAACCAAMABAACAAAAAACDAAMABAACAAAAAACEAAMABAACAAAAAACFAAMABAACAAAAAACGAAMABAACAAAAAACHAAMABAABAAAAAACMAAMABAAAAAAAAACNAAMABAACAAAAAACOAAMABAACAAAAAACPAAMABAACAAAAAACQAAMABAACAAAAAACRAAMABAACAAAAAACSAAMABAACAAAAAACTAAMABAACAAAAAACUAAMABAACAAAAAACVAAMABAACAAAAAACWAAMABAACAAAAAACXAAMABAACAAAAAACYAAMABAABAAAAAACdAAIABAAAAAAAAACeAAIABAACAAAAAACfAAIABAACAAAAAACgAAIABAACAAAAAAChAAIABAACAAAAAACiAAIABAACAAAAAACjAAIABAACAAAAAACkAAIABAACAAAAAAClAAIABAACAAAAAACmAAIABAACAAAAAACnAAIABAACAAAAAACoAAIABAACAAAAAACpAAIABAACAAAAAACqAAIABAACAAAAAACrAAIABAABAAAAAAA=")
+tile_set = SubResource("TileSet_u5ga4")
+
+[node name="Killzones" type="TileMapLayer" parent="Environment"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAASAP//AQAAAAAAAQA1AAEAAQAAAAAAAQBcAAEAAQAAAAAAAQBdAAEAAQAAAAAAAQB/AAIAAQAAAAAAAQCUAAIAAQAAAAAAAQCTAAIAAQAAAAAAAQCkAAEAAQAAAAAAAQA=")
+tile_set = SubResource("TileSet_u5ga4")
+
+[node name="Arrows" type="TileMapLayer" parent="Environment"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAAcAP3/BAAcAAMAAABMAP7/BAAcAAMAAAA=")
+tile_set = SubResource("TileSet_u5ga4")
+
+[node name="Items" type="TileMapLayer" parent="Environment"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAASAP3/AAAAAAAAAgAhAAIAAAAAAAAAAgAjAAIAAAAAAAAAAgAlAAIAAAAAAAAAAgA1AP//AAAAAAAAAgBDAP//AAAAAAAAAgBEAP//AAAAAAAAAgBFAP//AAAAAAAAAgBSAAQAAAAAAAAAAgBcAP//AAAAAAAAAgBdAP//AAAAAAAAAgBaAAEAAAAAAAAAAgBfAAEAAAAAAAAAAgBtAAAAAAAAAAAAAgBuAAAAAAAAAAAAAgB/AAAAAAAAAAAAAgCTAAAAAAAAAAAAAgCUAAAAAAAAAAAAAgCRAAIAAAAAAAAAAgCWAAIAAAAAAAAAAgCiAAEAAAAAAAAAAgCkAP//AAAAAAAAAgCmAAEAAAAAAAAAAgB9AAIAAAAAAAAAAgCBAAIAAAAAAAAAAgAzAAEAAAAAAAAAAgA3AAEAAAAAAAAAAgAQAP//AAAAAAAAAgAUAP//AAAAAAAAAgA=")
+tile_set = SubResource("TileSet_u5ga4")
+
+[node name="Killzone" parent="Environment" instance=ExtResource("7_sd2vu")]
+position = Vector2(0, 508)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Killzone"]
+shape = SubResource("WorldBoundaryShape2D_dpo37")
+
+[connection signal="body_entered" from="Environment/Items/Mana" to="Environment/Items/Mana" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38156" to="Environment/Items/@Area2D@38156" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38158" to="Environment/Items/@Area2D@38158" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38159" to="Environment/Items/@Area2D@38159" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38160" to="Environment/Items/@Area2D@38160" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38163" to="Environment/Items/@Area2D@38163" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38164" to="Environment/Items/@Area2D@38164" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38165" to="Environment/Items/@Area2D@38165" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38166" to="Environment/Items/@Area2D@38166" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38167" to="Environment/Items/@Area2D@38167" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38168" to="Environment/Items/@Area2D@38168" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38169" to="Environment/Items/@Area2D@38169" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38170" to="Environment/Items/@Area2D@38170" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38171" to="Environment/Items/@Area2D@38171" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38172" to="Environment/Items/@Area2D@38172" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38178" to="Environment/Items/@Area2D@38178" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38181" to="Environment/Items/@Area2D@38181" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38182" to="Environment/Items/@Area2D@38182" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38183" to="Environment/Items/@Area2D@38183" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38184" to="Environment/Items/@Area2D@38184" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38185" to="Environment/Items/@Area2D@38185" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38186" to="Environment/Items/@Area2D@38186" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38188" to="Environment/Items/@Area2D@38188" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38204" to="Environment/Items/@Area2D@38204" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38205" to="Environment/Items/@Area2D@38205" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38206" to="Environment/Items/@Area2D@38206" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38208" to="Environment/Items/@Area2D@38208" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38209" to="Environment/Items/@Area2D@38209" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@38210" to="Environment/Items/@Area2D@38210" method="_on_body_entered"]
