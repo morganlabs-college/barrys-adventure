@@ -58,6 +58,8 @@ script = ExtResource("1_n3drh")
 position = Vector2(0, 1)
 sprite_frames = SubResource("SpriteFrames_ho0nm")
 animation = &"rise"
+frame = 4
+frame_progress = 1.0
 
 [node name="Killzone" parent="." instance=ExtResource("1_bc6w3")]
 collision_layer = 0

@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://6qwv2t0diyiw"]
+
+[ext_resource type="Script" path="res://components/level_end/level_end.gd" id="1_nok58"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ylmk2"]
+normal = Vector2(-1, 0)
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource("1_nok58")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_ylmk2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

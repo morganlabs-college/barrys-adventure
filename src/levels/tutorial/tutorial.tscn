@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cq8rdtnkftcof"]
+[gd_scene load_steps=15 format=4 uid="uid://cq8rdtnkftcof"]
 
 [ext_resource type="PackedScene" uid="uid://b7qnu5d6ca3rh" path="res://components/player/player.tscn" id="1_d4hpr"]
 [ext_resource type="Script" path="res://levels/tutorial/text.gd" id="1_s0eq7"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cg0kg448rrjvl" path="res://assets/spritesheet.png" id="4_x7uvr"]
 [ext_resource type="PackedScene" uid="uid://dadxcc0gi61xp" path="res://components/freeze_time/freeze_time.tscn" id="5_apw8s"]
 [ext_resource type="PackedScene" uid="uid://7xa41tvutwyc" path="res://components/killzone/killzone.tscn" id="5_jaykn"]
+[ext_resource type="PackedScene" uid="uid://6qwv2t0diyiw" path="res://components/level_end/level_end.tscn" id="8_xhrjp"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mkwwv"]
 resource_name = "Items"
@@ -112,14 +113,17 @@ autowrap_mode = 3
 
 [node name="Player" parent="." instance=ExtResource("1_d4hpr")]
 position = Vector2(0, 8)
-speed = 100.0
+collision_layer = 7
+collision_mask = 1
+speed = 125.0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2(93, 0)
 zoom = Vector2(2, 2)
-limit_top = -128
-limit_bottom = 128
+limit_top = -256
+limit_bottom = 256
 position_smoothing_enabled = true
+position_smoothing_speed = 10.0
 
 [node name="Environment" type="Node2D" parent="."]
 
@@ -138,16 +142,6 @@ tile_set = SubResource("TileSet_u5ga4")
 use_parent_material = true
 tile_set = SubResource("TileSet_u5ga4")
 
-[node name="FreezeTime" parent="Environment" instance=ExtResource("5_apw8s")]
-process_mode = 3
-position = Vector2(800, 1)
-collision_layer = 2
-collision_mask = 2
-input_to_unfreeze = "Jump"
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/FreezeTime"]
-shape = SubResource("WorldBoundaryShape2D_0fxqg")
-
 [node name="FreezeTime3" parent="Environment" instance=ExtResource("5_apw8s")]
 process_mode = 3
 position = Vector2(2841, 1)
@@ -156,6 +150,16 @@ collision_mask = 2
 input_to_unfreeze = "Toggle Pause"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/FreezeTime3"]
+shape = SubResource("WorldBoundaryShape2D_0fxqg")
+
+[node name="FreezeTime" parent="Environment" instance=ExtResource("5_apw8s")]
+process_mode = 3
+position = Vector2(800, 0)
+collision_layer = 2
+collision_mask = 2
+input_to_unfreeze = "Jump"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/FreezeTime"]
 shape = SubResource("WorldBoundaryShape2D_0fxqg")
 
 [node name="FreezeTime2" parent="Environment" instance=ExtResource("5_apw8s")]
@@ -175,4 +179,5 @@ position = Vector2(0, 137)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Killzone"]
 shape = SubResource("WorldBoundaryShape2D_dpo37")
 
-[connection signal="body_entered" from="Environment/Ground/Mana" to="Environment/Ground/Mana" method="_on_body_entered"]
+[node name="Area2D" parent="." instance=ExtResource("8_xhrjp")]
+position = Vector2(3168, 0)
