@@ -8,6 +8,7 @@ const JUMP_TIME_DESCENT := 0.5
 
 @export var speed := 200.0
 
+var has_jumped := false
 var has_double_jumped := false
 var direction := DIRECTIONS.FORWARD
 
@@ -35,16 +36,20 @@ func _physics_process(delta: float) -> void:
 
 func handle_jump():
 	if Input.is_action_pressed("Jump"):
-		if is_on_floor():
+		if is_on_floor() and !has_jumped:
 			velocity.y = jump_velocity
+			has_jumped = true
 			return
 
 	if Input.is_action_just_pressed("Jump") and !is_on_floor() and !has_double_jumped:
-		velocity.y = jump_velocity / 1.25
+		var multiplier = 0.75 if has_jumped else 1.0
+		velocity.y = jump_velocity * multiplier
 		direction = DIRECTIONS.RISING
 		has_double_jumped = true
+		return
 
 	if is_on_floor():
+		has_jumped = false
 		has_double_jumped = false
 
 
