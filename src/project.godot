@@ -21,6 +21,10 @@ window/size/viewport_width=854
 window/size/viewport_height=480
 window/stretch/mode="viewport"
 
+[global_group]
+
+Interface=""
+
 [gui]
 
 theme/custom_font="res://assets/font.fnt"

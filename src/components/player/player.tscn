@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://b7qnu5d6ca3rh"]
 
 [ext_resource type="Texture2D" uid="uid://ilue013b5gmj" path="res://assets/player.png" id="1_jwvrk"]
-[ext_resource type="Script" path="res://components/player/movement.gd" id="1_l2xk2"]
+[ext_resource type="Script" path="res://components/player/player.gd" id="1_rjc1d"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ub7ou"]
 atlas = ExtResource("1_jwvrk")
@@ -122,12 +122,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ve4l3"]
 size = Vector2(17, 30)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["Interface"]]
 z_index = 5
 position = Vector2(-6, -24)
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("1_l2xk2")
+script = ExtResource("1_rjc1d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, 8)

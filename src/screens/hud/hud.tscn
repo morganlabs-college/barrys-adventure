@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://screens/hud/hud.gd" id="1_r4l4f"]
 
-[node name="HUD" type="CanvasLayer"]
+[node name="HUD" type="CanvasLayer" groups=["Interface"]]
 script = ExtResource("1_r4l4f")
 
 [node name="GameInfoContainer" type="VBoxContainer" parent="."]

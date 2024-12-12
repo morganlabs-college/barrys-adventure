@@ -8,6 +8,9 @@ const JUMP_TIME_DESCENT := 0.5
 
 @export var speed := 200.0
 
+var attempt := 0
+var mana := 0
+
 var has_jumped := false
 var has_double_jumped := false
 var direction := DIRECTIONS.FORWARD
@@ -69,3 +72,8 @@ func get_direction(delta: float):
 		direction = DIRECTIONS.FALLING
 	else:
 		direction = DIRECTIONS.FORWARD
+
+
+func add_mana() -> void:
+	mana += 1
+	get_tree().call_group("Interface", "update_score", mana)
