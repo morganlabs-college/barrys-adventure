@@ -18,9 +18,9 @@ scenes/1/scene = ExtResource("4_f4c4l")
 texture = ExtResource("5_7jjhu")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -3.71231, -12.4628, -12.1976, -3.27037, -16)
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:0/0 = 0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -16, 16, 16, 16, 16, -3.71231, 12.4628, -12.1976, 3.27037, -16)
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0 = 0
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 28:1/size_in_atlas = Vector2i(2, 2)
@@ -88,33 +88,3 @@ position = Vector2(0, 508)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Killzone"]
 shape = SubResource("WorldBoundaryShape2D_dpo37")
-
-[connection signal="body_entered" from="Environment/Items/Mana" to="Environment/Items/Mana" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38156" to="Environment/Items/@Area2D@38156" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38158" to="Environment/Items/@Area2D@38158" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38159" to="Environment/Items/@Area2D@38159" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38160" to="Environment/Items/@Area2D@38160" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38163" to="Environment/Items/@Area2D@38163" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38164" to="Environment/Items/@Area2D@38164" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38165" to="Environment/Items/@Area2D@38165" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38166" to="Environment/Items/@Area2D@38166" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38167" to="Environment/Items/@Area2D@38167" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38168" to="Environment/Items/@Area2D@38168" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38169" to="Environment/Items/@Area2D@38169" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38170" to="Environment/Items/@Area2D@38170" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38171" to="Environment/Items/@Area2D@38171" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38172" to="Environment/Items/@Area2D@38172" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38178" to="Environment/Items/@Area2D@38178" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38181" to="Environment/Items/@Area2D@38181" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38182" to="Environment/Items/@Area2D@38182" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38183" to="Environment/Items/@Area2D@38183" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38184" to="Environment/Items/@Area2D@38184" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38185" to="Environment/Items/@Area2D@38185" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38186" to="Environment/Items/@Area2D@38186" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38188" to="Environment/Items/@Area2D@38188" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38204" to="Environment/Items/@Area2D@38204" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38205" to="Environment/Items/@Area2D@38205" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38206" to="Environment/Items/@Area2D@38206" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38208" to="Environment/Items/@Area2D@38208" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38209" to="Environment/Items/@Area2D@38209" method="_on_body_entered"]
-[connection signal="body_entered" from="Environment/Items/@Area2D@38210" to="Environment/Items/@Area2D@38210" method="_on_body_entered"]
