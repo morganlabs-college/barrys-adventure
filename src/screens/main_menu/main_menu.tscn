@@ -1,0 +1,79 @@
+[gd_scene load_steps=2 format=3 uid="uid://b38nos8go2obq"]
+
+[ext_resource type="Script" path="res://screens/main_menu/main_menu.gd" id="1_rjgk1"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rjgk1")
+
+[node name="MenuContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -170.0
+offset_right = 71.0
+grow_vertical = 0
+
+[node name="Margins" type="MarginContainer" parent="MenuContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MenuContainer/Margins"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="LevelButtons" type="VBoxContainer" parent="MenuContainer/Margins/ButtonContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Tutorial" type="Button" parent="MenuContainer/Margins/ButtonContainer/LevelButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Tutorial"
+flat = true
+alignment = 0
+
+[node name="Easy" type="Button" parent="MenuContainer/Margins/ButtonContainer/LevelButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Easy"
+flat = true
+alignment = 0
+
+[node name="Normal" type="Button" parent="MenuContainer/Margins/ButtonContainer/LevelButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Normal"
+flat = true
+alignment = 0
+
+[node name="Hard" type="Button" parent="MenuContainer/Margins/ButtonContainer/LevelButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Hard"
+flat = true
+alignment = 0
+
+[node name="FunctionButtons" type="VBoxContainer" parent="MenuContainer/Margins/ButtonContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Quit" type="Button" parent="MenuContainer/Margins/ButtonContainer/FunctionButtons"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Quit"
+flat = true
+alignment = 0
+
+[connection signal="pressed" from="MenuContainer/Margins/ButtonContainer/LevelButtons/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="MenuContainer/Margins/ButtonContainer/LevelButtons/Easy" to="." method="_on_easy_pressed"]
+[connection signal="pressed" from="MenuContainer/Margins/ButtonContainer/LevelButtons/Normal" to="." method="_on_normal_pressed"]
+[connection signal="pressed" from="MenuContainer/Margins/ButtonContainer/LevelButtons/Hard" to="." method="_on_hard_pressed"]
+[connection signal="pressed" from="MenuContainer/Margins/ButtonContainer/FunctionButtons/Quit" to="." method="_on_quit_pressed"]
