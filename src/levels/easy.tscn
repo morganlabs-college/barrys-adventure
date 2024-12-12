@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=4 uid="uid://bq4wkt2pq0isl"]
+[gd_scene load_steps=12 format=4 uid="uid://bq4wkt2pq0isl"]
 
 [ext_resource type="PackedScene" uid="uid://b7qnu5d6ca3rh" path="res://components/player/player.tscn" id="2_3hgb1"]
+[ext_resource type="PackedScene" uid="uid://m1jnv5re5n5g" path="res://screens/hud/hud.tscn" id="2_iej8b"]
 [ext_resource type="PackedScene" uid="uid://bbecv4dgb47g1" path="res://components/items/mana.tscn" id="3_kwpsu"]
 [ext_resource type="PackedScene" uid="uid://iwxcjne1wtr3" path="res://components/spike/spike.tscn" id="4_f4c4l"]
 [ext_resource type="Texture2D" uid="uid://cg0kg448rrjvl" path="res://assets/spritesheet.png" id="5_7jjhu"]
@@ -46,6 +47,8 @@ tile_proxies/coords_level = [[0, Vector2i(0, 0)], [3, Vector2i(0, 0)], [1, Vecto
 
 [node name="Node2D" type="Node2D"]
 
+[node name="HUD2" parent="." instance=ExtResource("2_iej8b")]
+
 [node name="Player" parent="." instance=ExtResource("2_3hgb1")]
 position = Vector2(0, 8)
 collision_layer = 7
@@ -88,3 +91,35 @@ position = Vector2(0, 508)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Killzone"]
 shape = SubResource("WorldBoundaryShape2D_dpo37")
+
+[node name="HUD" parent="." instance=ExtResource("2_iej8b")]
+
+[connection signal="body_entered" from="Environment/Items/Mana" to="Environment/Items/Mana" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44348" to="Environment/Items/@Area2D@44348" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44349" to="Environment/Items/@Area2D@44349" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44350" to="Environment/Items/@Area2D@44350" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44351" to="Environment/Items/@Area2D@44351" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44352" to="Environment/Items/@Area2D@44352" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44353" to="Environment/Items/@Area2D@44353" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44354" to="Environment/Items/@Area2D@44354" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44355" to="Environment/Items/@Area2D@44355" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44356" to="Environment/Items/@Area2D@44356" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44357" to="Environment/Items/@Area2D@44357" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44358" to="Environment/Items/@Area2D@44358" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44359" to="Environment/Items/@Area2D@44359" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44360" to="Environment/Items/@Area2D@44360" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44361" to="Environment/Items/@Area2D@44361" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44362" to="Environment/Items/@Area2D@44362" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44363" to="Environment/Items/@Area2D@44363" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44364" to="Environment/Items/@Area2D@44364" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44365" to="Environment/Items/@Area2D@44365" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44366" to="Environment/Items/@Area2D@44366" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44367" to="Environment/Items/@Area2D@44367" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44368" to="Environment/Items/@Area2D@44368" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44369" to="Environment/Items/@Area2D@44369" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44370" to="Environment/Items/@Area2D@44370" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44371" to="Environment/Items/@Area2D@44371" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44372" to="Environment/Items/@Area2D@44372" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44373" to="Environment/Items/@Area2D@44373" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44374" to="Environment/Items/@Area2D@44374" method="_on_body_entered"]
+[connection signal="body_entered" from="Environment/Items/@Area2D@44375" to="Environment/Items/@Area2D@44375" method="_on_body_entered"]
