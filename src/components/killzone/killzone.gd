@@ -3,8 +3,7 @@ extends Area2D
 @onready var timer = $Timer
 
 
-func _on_body_entered(_body: Node2D) -> void:
-	print("Died.")
+func _on_body_entered(body: Node2D) -> void:
 	get_tree().paused = true
 	timer.start()
 

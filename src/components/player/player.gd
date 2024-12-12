@@ -8,7 +8,6 @@ const JUMP_TIME_DESCENT := 0.5
 
 @export var speed := 200.0
 
-var attempt := 0
 var mana := 0
 
 var has_jumped := false
