@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=4 uid="uid://cq8rdtnkftcof"]
+[gd_scene load_steps=16 format=4 uid="uid://cq8rdtnkftcof"]
 
 [ext_resource type="PackedScene" uid="uid://b7qnu5d6ca3rh" path="res://components/player/player.tscn" id="1_d4hpr"]
+[ext_resource type="PackedScene" uid="uid://m1jnv5re5n5g" path="res://screens/hud/hud.tscn" id="1_oo1dw"]
 [ext_resource type="Script" path="res://levels/tutorial/text.gd" id="1_s0eq7"]
 [ext_resource type="PackedScene" uid="uid://bbecv4dgb47g1" path="res://components/items/mana.tscn" id="2_517ep"]
 [ext_resource type="PackedScene" uid="uid://iwxcjne1wtr3" path="res://components/spike/spike.tscn" id="3_bvjm4"]
@@ -41,6 +42,8 @@ normal = Vector2(-1, 0)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_dpo37"]
 
 [node name="Node2D" type="Node2D"]
+
+[node name="HUD" parent="." instance=ExtResource("1_oo1dw")]
 
 [node name="Constant Text" type="Node2D" parent="."]
 position = Vector2(120, -64)
@@ -175,3 +178,5 @@ shape = SubResource("WorldBoundaryShape2D_dpo37")
 
 [node name="Area2D" parent="." instance=ExtResource("8_xhrjp")]
 position = Vector2(3168, 0)
+
+[connection signal="body_entered" from="Environment/Ground/Mana" to="Environment/Ground/Mana" method="_on_body_entered"]
