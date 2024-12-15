@@ -3,12 +3,11 @@
 importer="font_data_bmfont"
 type="FontFile"
 uid="uid://cmqaithpu0hrj"
-path="res://.godot/imported/font.fnt-685f0674c05c7b4429501121b03abc25.fontdata"
+valid=false
 
 [deps]
 
 source_file="res://assets/font.fnt"
-dest_files=["res://.godot/imported/font.fnt-685f0674c05c7b4429501121b03abc25.fontdata"]
 
 [params]
 

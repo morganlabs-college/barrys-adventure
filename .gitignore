@@ -1,4 +1,8 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
-result/
+
+*.x86*
+*.pck
+*.AppImage
+*.exe
