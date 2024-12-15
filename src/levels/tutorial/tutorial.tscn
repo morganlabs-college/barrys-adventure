@@ -53,7 +53,7 @@ offset_right = 278.0
 offset_bottom = 51.0
 theme_override_font_sizes/font_size = 64
 text = "Hello there :)
-Welcome to <Game Name>!"
+Welcome to Barry's Adventure!"
 horizontal_alignment = 1
 autowrap_mode = 3
 
@@ -178,3 +178,5 @@ shape = SubResource("WorldBoundaryShape2D_dpo37")
 
 [node name="LevelEnd" parent="." instance=ExtResource("8_xhrjp")]
 position = Vector2(3129, 0)
+
+[connection signal="body_entered" from="Environment/Ground/Mana" to="Environment/Ground/Mana" method="_on_body_entered"]
