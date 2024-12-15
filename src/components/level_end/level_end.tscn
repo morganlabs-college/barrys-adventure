@@ -5,7 +5,7 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ylmk2"]
 normal = Vector2(-1, 0)
 
-[node name="Area2D" type="Area2D"]
+[node name="LevelEnd" type="Area2D"]
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_nok58")

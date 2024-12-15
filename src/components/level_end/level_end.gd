@@ -1,7 +1,5 @@
 extends Area2D
 
 
-func _on_body_entered(body: Node2D) -> void:
-	# TODO: Display final stats and a button to go to the next level.
-	print("End of level")
-	get_tree().paused = true
+func _on_body_entered(_body: Node2D) -> void:
+	get_tree().change_scene_to_file("res:///screens/main_menu/main_menu.tscn")

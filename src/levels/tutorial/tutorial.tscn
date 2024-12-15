@@ -176,7 +176,5 @@ position = Vector2(0, 137)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/Killzone"]
 shape = SubResource("WorldBoundaryShape2D_dpo37")
 
-[node name="Area2D" parent="." instance=ExtResource("8_xhrjp")]
-position = Vector2(3168, 0)
-
-[connection signal="body_entered" from="Environment/Ground/Mana" to="Environment/Ground/Mana" method="_on_body_entered"]
+[node name="LevelEnd" parent="." instance=ExtResource("8_xhrjp")]
+position = Vector2(3129, 0)
