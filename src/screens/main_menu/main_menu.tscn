@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://b38nos8go2obq"]
+[gd_scene load_steps=3 format=3 uid="uid://b38nos8go2obq"]
 
 [ext_resource type="Script" path="res://screens/main_menu/main_menu.gd" id="1_rjgk1"]
+[ext_resource type="PackedScene" uid="uid://d05ir7myqfnb8" path="res://components/background.tscn" id="2_8w35o"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -71,6 +72,8 @@ theme_override_font_sizes/font_size = 48
 text = "Quit"
 flat = true
 alignment = 0
+
+[node name="Background" parent="." instance=ExtResource("2_8w35o")]
 
 [connection signal="pressed" from="MenuContainer/Margins/ButtonContainer/LevelButtons/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="MenuContainer/Margins/ButtonContainer/LevelButtons/Easy" to="." method="_on_easy_pressed"]

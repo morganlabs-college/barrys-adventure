@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://d05ir7myqfnb8"]
+
+[ext_resource type="Texture2D" uid="uid://uj57fuctc7sa" path="res://assets/sun.png" id="1_v82q5"]
+
+[node name="Background" type="ParallaxBackground"]
+
+[node name="Background" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(854, 480)
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_right = 854.0
+offset_bottom = 480.0
+color = Color(0.449328, 0.530601, 0.654448, 1)
+
+[node name="Sun" type="ParallaxLayer" parent="."]
+position = Vector2(427, 240)
+motion_scale = Vector2(0.015, 0.015)
+
+[node name="Sprite2D" type="Sprite2D" parent="Sun"]
+texture = ExtResource("1_v82q5")

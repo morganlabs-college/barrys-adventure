@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://bnyyev32ubho5"]
+[gd_scene load_steps=14 format=4 uid="uid://bnyyev32ubho5"]
 
 [ext_resource type="PackedScene" uid="uid://b7qnu5d6ca3rh" path="res://components/player/player.tscn" id="1_te4ta"]
 [ext_resource type="PackedScene" uid="uid://m1jnv5re5n5g" path="res://screens/hud/hud.tscn" id="1_u1dj3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cg0kg448rrjvl" path="res://assets/spritesheet.png" id="4_vllww"]
 [ext_resource type="PackedScene" uid="uid://7xa41tvutwyc" path="res://components/killzone/killzone.tscn" id="5_8lrml"]
 [ext_resource type="PackedScene" uid="uid://6qwv2t0diyiw" path="res://components/level_end/level_end.tscn" id="7_l45gl"]
+[ext_resource type="PackedScene" uid="uid://d05ir7myqfnb8" path="res://components/background.tscn" id="8_8lmvs"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_mkwwv"]
 resource_name = "Items"
@@ -92,3 +93,5 @@ shape = SubResource("WorldBoundaryShape2D_dpo37")
 
 [node name="LevelEnd" parent="." instance=ExtResource("7_l45gl")]
 position = Vector2(10177, 0)
+
+[node name="Background" parent="." instance=ExtResource("8_8lmvs")]
