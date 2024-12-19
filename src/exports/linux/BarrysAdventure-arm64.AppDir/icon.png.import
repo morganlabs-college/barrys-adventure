@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b4byuuy2gnnam"
-path="res://.godot/imported/icon.png-2710829c853bd19391228ce64db3db98.ctex"
+path="res://.godot/imported/icon.png-8ea016ead2b815ee967acfe6c0ccc1db.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://exports/linux/Barry's_Adventure.AppDir/icon.png"
-dest_files=["res://.godot/imported/icon.png-2710829c853bd19391228ce64db3db98.ctex"]
+source_file="res://exports/linux/BarrysAdventure-arm64.AppDir/icon.png"
+dest_files=["res://.godot/imported/icon.png-8ea016ead2b815ee967acfe6c0ccc1db.ctex"]
 
 [params]
 
