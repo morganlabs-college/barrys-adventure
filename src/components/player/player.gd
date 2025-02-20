@@ -12,7 +12,6 @@ const JUMP_TIME_DESCENT := 0.5
 @export var speed := 200.0
 
 var mana := 0
-
 var has_jumped := false
 var has_double_jumped := false
 var direction_x := DIRECTIONS_X.STILL
@@ -28,7 +27,6 @@ var direction_y := DIRECTIONS_Y.GROUND
 func _get_gravity() -> float:
 	return jump_gravity if velocity.y < 0.0 else fall_gravity
 
-
 func _physics_process(delta: float) -> void:
 	velocity.y += _get_gravity() * delta
 
@@ -38,6 +36,10 @@ func _physics_process(delta: float) -> void:
 	handle_animation()
 
 	move_and_slide()
+
+
+func _process(delta: float) -> void:
+	get_tree().call_group("Interface", "update_timer", delta)
 
 func handle_movement(delta: float):
 	if Input.is_action_pressed("Move Left"):

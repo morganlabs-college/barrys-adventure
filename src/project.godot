@@ -18,6 +18,10 @@ boot_splash/fullsize=false
 boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameState="*res://GameState.gd"
+
 [display]
 
 window/size/viewport_width=854
