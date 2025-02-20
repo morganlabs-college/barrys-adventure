@@ -92,6 +92,7 @@ position = Vector2(0, 508)
 shape = SubResource("WorldBoundaryShape2D_dpo37")
 
 [node name="HUD" parent="." instance=ExtResource("2_iej8b")]
+time_left = 200.0
 
 [node name="LevelEnd" parent="." instance=ExtResource("7_35spu")]
 position = Vector2(5441, -2)
