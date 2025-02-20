@@ -6,3 +6,5 @@
 *.pck
 *.AppImage
 *.exe
+
+.DS_Store
