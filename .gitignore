@@ -2,9 +2,6 @@
 .godot/
 /android/
 
-*.x86*
-*.pck
-*.AppImage
-*.exe
+exports/
 
 .DS_Store
