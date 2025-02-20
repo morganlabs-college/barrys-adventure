@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://b7qnu5d6ca3rh"]
+[gd_scene load_steps=20 format=3 uid="uid://b7qnu5d6ca3rh"]
 
 [ext_resource type="Texture2D" uid="uid://ilue013b5gmj" path="res://assets/player.png" id="1_jwvrk"]
 [ext_resource type="Script" path="res://components/player/player.gd" id="1_rjc1d"]
+[ext_resource type="Script" path="res://components/player/fix_jitter.gd" id="3_ipvxc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ub7ou"]
 atlas = ExtResource("1_jwvrk")
@@ -134,6 +135,7 @@ position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_vnylc")
 animation = &"running"
 autoplay = "running"
+script = ExtResource("3_ipvxc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
